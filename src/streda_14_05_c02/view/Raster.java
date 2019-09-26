@@ -37,4 +37,8 @@ public class Raster extends JPanel {
         }, 0, FPS);
     }
 
+    public void drawPixel(int x, int y, int color) {
+        img.setRGB(x, y, color);
+    }
+
 }
