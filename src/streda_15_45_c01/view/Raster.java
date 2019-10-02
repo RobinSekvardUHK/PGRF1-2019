@@ -18,6 +18,7 @@ public class Raster extends JPanel {
         img = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
         g = img.getGraphics();
         setLoop();
+        clear();
     }
 
     @Override
@@ -38,7 +39,12 @@ public class Raster extends JPanel {
     }
 
     public void drawPixel(int x, int y, int color) {
+        // ošetřit souřadnice
         img.setRGB(x, y, color);
     }
 
+    public void clear() {
+        g.setColor(Color.GRAY);
+        g.fillRect(0, 0, 800, 600);
+    }
 }
