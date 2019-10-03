@@ -12,9 +12,11 @@ public class Renderer {
 
     public void drawLine(int x1, int x2, int y1, int y2, int color) {
         final float k = (y2 - y1) / (float) (x2 - x1);
+        // https://www.google.com/search?q=java+dividing+two+integers
         final float q = (y1 - k * x1);
 
-        if (k < 1) { // absolutní hodnota ?
+        // řídící osa X
+        if (k < 1) { // absolutní hodnota Math.abs(k)
             if (x2 < x1) {
                 int temp = x1;
                 x1 = x2;

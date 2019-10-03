@@ -4,9 +4,6 @@ import streda_17_25_c03.controller.Controller;
 import streda_17_25_c03.view.PGRFWindow;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class AppStart {
 

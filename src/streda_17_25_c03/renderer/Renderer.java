@@ -19,8 +19,10 @@ public class Renderer {
         int dy = y2 - y1;
 
         float k = (float) dy / dx;
+        // https://www.google.com/search?q=java+dividing+two+integers
         float q = y1 - k * x1;
 
+        // řídící osa X
         if (k < 1) { // absolutní hodnota Math.abs(k)
             if (x1 > x2) {
                 int temp = x1;
@@ -37,7 +39,7 @@ public class Renderer {
                 raster.drawPixel(x, y, color);
             }
         } else {
-            // dořešit podle osy Y
+            // dodělat podle osy Y
         }
     }
 }

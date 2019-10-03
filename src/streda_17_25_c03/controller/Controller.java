@@ -17,7 +17,7 @@ public class Controller {
     }
 
     private void initListeners(Raster raster) {
-        raster.addMouseMotionListener(new MouseAdapter() {
+        raster.addMouseMotionListener(new MouseAdapter() { // addMouseMOTIONListener
             @Override
             public void mouseDragged(MouseEvent e) {
                 renderer.clear();

@@ -12,9 +12,11 @@ public class Renderer {
 
     public void drawLine(int startX, int startY, int endX, int endY, int color) {
         float k = (float) (endY - startY) / (endX - startX);
+        // https://www.google.com/search?q=java+dividing+two+integers
         float q = startY - (k * startX);
 
-        if (k < 1) {
+        // řídící osa X
+        if (k < 1) { // absolutní hodnota Math.abs(k)
             if (startX > endX) {
                 int temp = startX;
                 startX = endX;
