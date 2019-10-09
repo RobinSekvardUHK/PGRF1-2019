@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 public class Controller {
 
     private final Renderer renderer;
+//    private List<???> points = new ArrayList<>();
 
     public Controller(Raster raster) {
         this.renderer = new Renderer(raster);
@@ -17,6 +18,12 @@ public class Controller {
     }
 
     private void initListeners(Raster raster) {
+        raster.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+//                points.add(new Point(e.getX(), e.getY()));
+            }
+        });
         raster.addMouseMotionListener(new MouseAdapter() { // addMouseMOTIONListener
             @Override
             public void mouseDragged(MouseEvent e) {
