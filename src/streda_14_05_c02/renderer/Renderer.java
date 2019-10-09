@@ -36,6 +36,21 @@ public class Renderer {
         }
     }
 
+    public void drawDDA(int startX, int startY, int endX, int endY, int color) {
+        int dx = endX - startX;
+        int dy = endY - startY;
+
+        float k = dy / (float) dx;
+        float x = startX;
+        float y = startY;
+
+        for (int i = 0; i <= Math.max(dx, dy); i++) {
+            raster.drawPixel(Math.round(x), Math.round(y), color);
+            x += 1;
+            y += k;
+        }
+    }
+
     public void clear() {
         raster.clear();
     }

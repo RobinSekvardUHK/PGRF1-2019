@@ -42,4 +42,19 @@ public class Renderer {
             // dodělat podle osy Y
         }
     }
+
+    public void drawDDA(int x1, int y1, int x2, int y2, int color) {
+        int dx = x2 - x1;
+        int dy = y2 - y1;
+        float k = dy / (float) dx;
+        float x = x1;
+        float y = y1;
+
+        for (int i = 0; i <= Math.max(dx, dy); i++){
+            raster.drawPixel(Math.round(x), Math.round(y), color);
+            x += 1;
+            y += k;
+        }
+
+    }
 }

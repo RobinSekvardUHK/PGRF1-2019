@@ -23,7 +23,7 @@ public class Controller {
             @Override
             public void mouseDragged(MouseEvent e) {
                 renderer.clear();
-                renderer.drawLine(400, 300, e.getX(), e.getY(), 0x00ff00);
+                renderer.drawDDA(400, 300, e.getX(), e.getY(), 0x00ff00);
             }
         });
     }

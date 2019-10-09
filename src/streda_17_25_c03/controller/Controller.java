@@ -21,7 +21,7 @@ public class Controller {
             @Override
             public void mouseDragged(MouseEvent e) {
                 renderer.clear();
-                renderer.drawLine(400, 300, e.getX(), e.getY(), Color.YELLOW.getRGB());
+                renderer.drawDDA(400, 300, e.getX(), e.getY(), Color.YELLOW.getRGB());
             }
         });
     }
