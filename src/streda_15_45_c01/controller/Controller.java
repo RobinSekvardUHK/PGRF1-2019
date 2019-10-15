@@ -14,6 +14,7 @@ public class Controller {
 
     public Controller(Raster raster) {
         this.renderer = new Renderer(raster);
+
         initListeners(raster);
     }
 

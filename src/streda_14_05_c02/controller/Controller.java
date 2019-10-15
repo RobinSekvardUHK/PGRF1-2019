@@ -12,10 +12,9 @@ public class Controller {
 //    private List<???> points = new ArrayList<>();
 
     public Controller(Raster raster) {
-        renderer = new Renderer(raster);
+        this.renderer = new Renderer(raster);
+
         initListeners(raster);
-//        renderer.drawLine(0, 1, 8, 4, Color.WHITE.getRGB());
-//        renderer.drawLine(100, 100, 500, 300, Color.YELLOW.getRGB());
     }
 
     private void initListeners(Raster raster) {
