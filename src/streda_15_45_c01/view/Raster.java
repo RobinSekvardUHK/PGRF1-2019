@@ -47,4 +47,8 @@ public class Raster extends JPanel {
         g.setColor(Color.GRAY);
         g.fillRect(0, 0, 800, 600);
     }
+
+    public int getPixel(int x, int y) {
+        return img.getRGB(x, y);
+    }
 }

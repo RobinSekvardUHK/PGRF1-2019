@@ -49,4 +49,11 @@ public class Renderer2D extends Renderer {
         }
     }
 
+    public int getPixel(int x, int y) {
+        return raster.getPixel(x, y);
+    }
+
+    public void drawPixel(int x, int y, int color) {
+        raster.drawPixel(x, y, color);
+    }
 }

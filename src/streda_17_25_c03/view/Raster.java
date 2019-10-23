@@ -3,6 +3,8 @@ package streda_17_25_c03.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,7 +41,6 @@ public class Raster extends JPanel {
     }
 
     public void drawPixel(int x, int y, int color) {
-        // ošetřit hodnoty X a Y
         img.setRGB(x, y, color);
     }
 
@@ -48,4 +49,7 @@ public class Raster extends JPanel {
         g.fillRect(0, 0, 800, 600);
     }
 
+    public int getPixel(int x, int y) {
+        return img.getRGB(x, y);
+    }
 }

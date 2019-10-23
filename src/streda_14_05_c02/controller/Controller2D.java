@@ -1,15 +1,17 @@
 package streda_14_05_c02.controller;
 
+import streda_14_05_c02.fill.SeedFill;
 import streda_14_05_c02.renderer.Renderer2D;
 import streda_14_05_c02.view.Raster;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Controller2D implements Controller {
 
     private Renderer2D renderer2D;
-//    private List<???> points = new ArrayList<>();
+    private SeedFill seedFill;
 
     public Controller2D(Raster raster) {
         initObjects(raster);
@@ -19,6 +21,8 @@ public class Controller2D implements Controller {
     @Override
     public void initObjects(Raster raster) {
         this.renderer2D = new Renderer2D(raster);
+        seedFill = new SeedFill();
+        seedFill.setRenderer(renderer2D);
     }
 
     @Override
@@ -26,7 +30,10 @@ public class Controller2D implements Controller {
         raster.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-//                points.add(new Point(e.getX(), e.getY()));
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    seedFill.setSeed(e.getX(), e.getY(), 0xffff00);
+                    seedFill.fill();
+                }
             }
         });
         raster.addMouseMotionListener(new MouseAdapter() { // addMouseMOTIONListener
