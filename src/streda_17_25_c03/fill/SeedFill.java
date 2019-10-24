@@ -24,6 +24,9 @@ public class SeedFill implements Filler {
         backgroundColor = renderer.getPixel(x, y);
     }
 
+    // pozor na rekurzivní volání
+    // nutné upravit parametr pro VM "-Xss100m"
+    // https://stackoverflow.com/questions/4967885/jvm-option-xss-what-does-it-do-exactly
     private void seed(int x, int y) {
         if (x >= 0 && y >= 0 && x < 800 && y < 600) {
             if (backgroundColor == renderer.getPixel(x, y)) {
