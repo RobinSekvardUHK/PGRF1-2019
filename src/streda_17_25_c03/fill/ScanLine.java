@@ -33,11 +33,12 @@ public class ScanLine implements Filler {
 
     private void scanLine() {
         List<Edge> edges = new ArrayList<>();
-        // projet všechny body a vytvořit z nich hrany (jako polygon)
-        // 0. a 1. bod budou první hrana; 1. a 2. bod budou druhá hrana
-        // ...; poslední a 0. bod
-        // ignorovat vodorovné hrany
+        // projet všechny body (list points) a vytvořit z nich hrany (stejně nepravidelný n-úhelník)
+        // 0. a 1. vrchol budou první hrana; 1. a 2. vrchol budou druhá hrana; ...; poslední a 0. vrchol
+        // ignorovat vodorovné úsečky
         // vytvořené nevodorovné hrany se zorientují a přidají do seznamu
+
+        // výsledkem je seznam zorientovaných hran bez vodorovných úseků
 
         // najít minimum a maximum pro Y
         int minY = points.get(0).getY();
@@ -46,23 +47,25 @@ public class ScanLine implements Filler {
 
         // pro všechna Y od min do max včetně
         for (int y = minY; y <= maxY; y++) {
+
             List<Integer> intersections = new ArrayList<>();
             // vnořený cyklus
-            // projít všechny hrany
-            // pokud hrana má průsečík pro dané Y
-            // tak vypočítat průsečík a uložit do seznamu
+            // projít všechny hrany (list edges)
+            // pokud hrana má průsečík na daném Y..
+            // .. tak vypočítat X hodnotu průsečíku a uložit ji do seznamu
+
+            // nyní je naplněný seznam průsečíků
 
             Collections.sort(intersections);
-            // nebo volitelně vlastní algoritmus na seřazení (pouze v rámci PGRF)
-            // v praxi používat hotová řešení na řazení
+            // nebo volitelně implementovat vlastní algoritmus na seřazení (pouze v rámci PGRF)
+            // v praxi používat hotová řešení, tj. Collections.sort
 
-            // vybavení mezi průsečíky
-            // spojení vždy sudého s lichým
-            // 0. a 1.; 2. a 3.; ...
+            // vybarvení mezi průsečíky
+            // spojení vždy sudého s lichým (myšleno sudý a lichý index)
+            // tj. 0. a 1.; 2. a 3.; ...
         }
 
         // obtáhnutí hranice
-        // renderer.drawPolygon(points, edgeColor);
-
+        // renderer.drawPolygon(points, polygonColor);
     }
 }

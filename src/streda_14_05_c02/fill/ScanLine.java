@@ -11,9 +11,9 @@ import java.util.List;
 public class ScanLine implements Filler {
 
     private Renderer2D renderer;
+
     private List<Point> points;
-    private int fillColor;
-    private int polygonColor;
+    private int fillColor, polygonColor;
 
     @Override
     public void setRenderer(Renderer2D renderer) {
@@ -36,7 +36,7 @@ public class ScanLine implements Filler {
         // projet všechny body (list points) a vytvořit z nich hrany (stejně nepravidelný n-úhelník)
         // 0. a 1. vrchol budou první hrana; 1. a 2. vrchol budou druhá hrana; ...; poslední a 0. vrchol
         // ignorovat vodorovné úsečky
-        // pokud není vodorovná, tak zorientovat a přidat do seznamu
+        // vytvořené nevodorovné hrany se zorientují a přidají do seznamu
 
         // výsledkem je seznam zorientovaných hran bez vodorovných úseků
 
@@ -47,17 +47,21 @@ public class ScanLine implements Filler {
 
         // pro všechna Y od min do max včetně
         for (int y = minY; y <= maxY; y++) {
+
             List<Integer> intersections = new ArrayList<>();
+            // vnořený cyklus
             // projít všechny hrany (list edges)
             // pokud hrana má průsečík na daném Y..
             // .. tak vypočítat X hodnotu průsečíku a uložit ji do seznamu
 
+            // nyní je naplněný seznam průsečíků
+
             Collections.sort(intersections);
-            // nebo volitelně implementovat vlastní algoritmus na seřazení
+            // nebo volitelně implementovat vlastní algoritmus na seřazení (pouze v rámci PGRF)
             // v praxi používat hotová řešení, tj. Collections.sort
 
             // vybarvení mezi průsečíky
-            // spojení vždy sudého s lichým
+            // spojení vždy sudého s lichým (myšleno sudý a lichý index)
             // tj. 0. a 1.; 2. a 3.; ...
         }
 
