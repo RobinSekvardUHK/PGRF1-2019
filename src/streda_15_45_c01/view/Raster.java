@@ -12,10 +12,13 @@ public class Raster extends JPanel {
     private final Graphics g; // objekt nad kterým jsou k dispozici grafické funkce
     private static final int FPS = 1000 / 30;
 
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
+
     public Raster() {
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
         // inicializace image, nastavení rozměrů (nastavení typu - pro nás nedůležité)
-        img = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+        img = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = img.getGraphics();
         setLoop();
         clear();
@@ -45,7 +48,7 @@ public class Raster extends JPanel {
 
     public void clear() {
         g.setColor(Color.GRAY);
-        g.fillRect(0, 0, 800, 600);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
     }
 
     public int getPixel(int x, int y) {

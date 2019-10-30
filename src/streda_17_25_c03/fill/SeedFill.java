@@ -1,6 +1,7 @@
 package streda_17_25_c03.fill;
 
 import streda_17_25_c03.renderer.Renderer2D;
+import streda_17_25_c03.view.Raster;
 
 public class SeedFill implements Filler {
 
@@ -28,7 +29,7 @@ public class SeedFill implements Filler {
     // nutné upravit parametr pro VM "-Xss100m"
     // https://stackoverflow.com/questions/4967885/jvm-option-xss-what-does-it-do-exactly
     private void seed(int x, int y) {
-        if (x >= 0 && y >= 0 && x < 800 && y < 600) {
+        if (x >= 0 && y >= 0 && x < Raster.WIDTH && y < Raster.HEIGHT) {
             if (backgroundColor == renderer.getPixel(x, y)) {
                 renderer.drawPixel(x, y, fillColor);
                 seed(x + 1, y);
