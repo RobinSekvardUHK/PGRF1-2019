@@ -1,3 +1,5 @@
+package misc;
+
 import streda_15_45_c01.model.Point;
 
 import java.util.ArrayList;
