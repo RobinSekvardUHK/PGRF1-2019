@@ -15,22 +15,42 @@ public class Edge {
         y2 = p2.getY();
     }
 
+    /**
+     * Zjistí, zda je úsečka vodorovná
+     *
+     * @return true pokud je vodorovná, jinak false
+     */
     public boolean isHorizontal() {
-        // TODO rovnost y1,y2
+        // TODO test na rovnost y1 a y2
         return false;
     }
 
+    /**
+     * Zorientuje úsečku odshora dolů
+     */
     public void orientate() {
-        // TODO prohození hodnot když y1 je větší než y2
+        // TODO prohození hodnot, když y1 je větší než y2
     }
 
+    /**
+     * Zjistí, zda existuje průsečík s scan-line s touto úsečkou
+     *
+     * @param y y-ová souřadnice vodorovné přímky (scan-line)
+     * @return true, pokud existuje průsečík
+     */
     public boolean hasIntersection(int y) {
-        // TODO zda y je v rozsahu y1 a y2
+        // TODO y, y1, y2 - porovnat, zda je y v rozsahu
         return false;
     }
 
+    /**
+     * Vrátí x-ovou souřadnici průsečíku s scan-line a této úsečky
+     *
+     * @param y y-ová souřadnice vodorovné přímky (scan-line)
+     * @return vrátí x-ovou souřadnici průsečíku
+     */
     public int getIntersection(int y) {
-        // TODO spočítat průsečík pomocí y, k, q (podle osy Y)
+        // TODO vypočítat průsečík pomocí y, k, q (osa Y)
         return 0;
     }
 

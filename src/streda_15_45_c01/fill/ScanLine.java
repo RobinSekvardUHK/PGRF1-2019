@@ -43,7 +43,7 @@ public class ScanLine implements Filler {
         // najít minimum a maximum pro Y
         int minY = points.get(0).getY();
         int maxY = minY;
-        // projet všechny body (list points) a najít minimální a maximální Y
+        // projet všechny body (list points) a najít minimální a maximální Y (optimalizační krok)
 
         // pro všechna Y od min do max včetně
         for (int y = minY; y <= maxY; y++) {
@@ -56,6 +56,7 @@ public class ScanLine implements Filler {
 
             // nyní je naplněný seznam průsečíků
 
+            // setřídit průsečíky
             Collections.sort(intersections);
             // nebo volitelně implementovat vlastní algoritmus na seřazení (pouze v rámci PGRF)
             // v praxi používat hotová řešení, tj. Collections.sort
