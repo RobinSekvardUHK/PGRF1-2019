@@ -54,4 +54,38 @@ public class Edge {
         return 0;
     }
 
+    /**
+     * Zjišťuje, na které straně přímky tvořené touto úsečkou se nachází bod z parametru
+     *
+     * @param p bod pro zjištění
+     * @return true když je na "správné" straně - záleží na orientaci
+     */
+    public boolean isInside(Point p) {
+        // tečný vektor
+        Point t = new Point(x2 - x1, y2 - y1);
+
+        // normálový vektor
+        Point n = new Point(t.getY(), -t.getX());
+        //Point n = new Point(-t.getY(), t.getX());
+
+        // vektor k bodu
+        Point v = new Point(p.getX() - x1, p.getY() - y1);
+
+        return (v.getX() * n.getX() + v.getY() * n.getY() < 0);
+    }
+
+    /**
+     * Výpočet průsečíku dvou úseček.
+     * První úsečka je daná instancí této třídy.
+     * Druhá úsečka je daná dvěma body z parametrů funkce.
+     *
+     * @param p1 první krajní bod druhé úsečky
+     * @param p2 druhý krajní bod druhé úsečky
+     * @return průsečík
+     */
+    public Point getIntersection(Point p1, Point p2) {
+        // TODO
+        return new Point(0, 0);
+    }
+
 }
