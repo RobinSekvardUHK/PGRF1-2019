@@ -3,10 +3,13 @@ package streda_15_45_c01.controller;
 import streda_15_45_c01.fill.SeedFill;
 import streda_15_45_c01.renderer.Renderer2D;
 import streda_15_45_c01.view.Raster;
+import transforms.*;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller2D implements Controller {
 
@@ -23,6 +26,35 @@ public class Controller2D implements Controller {
         renderer2D = new Renderer2D(raster);
         seedFill = new SeedFill();
         seedFill.setRenderer(renderer2D);
+
+        List<Point2D> points = new ArrayList<>();
+        points.add(new Point2D(400, 300));
+        points.add(new Point2D(600, 250));
+
+        renderer2D.drawLine(
+                (int) points.get(0).getX(),
+                (int) points.get(0).getY(),
+                (int) points.get(1).getX(),
+                (int) points.get(1).getY(),
+                Color.GREEN.getRGB()
+        );
+
+        Mat3 mat3 = new Mat3Transl2D(-400, -300)
+                .mul(new Mat3Rot2D(Math.toRadians(30)))
+                .mul(new Mat3Transl2D(400, 300));
+        System.out.println(mat3.toString());
+
+        Point2D newP1 = points.get(0).mul(mat3);
+        points.set(0, newP1);
+        Point2D newP2 = points.get(1).mul(mat3);
+        points.set(1, newP2);
+        renderer2D.drawLine(
+                (int) points.get(0).getX(),
+                (int) points.get(0).getY(),
+                (int) points.get(1).getX(),
+                (int) points.get(1).getY(),
+                Color.YELLOW.getRGB()
+        );
     }
 
     @Override
